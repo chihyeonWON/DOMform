@@ -9,3 +9,14 @@ const options = document.querySelectorAll(".dropdown-option")
 toggleButton.addEventListener("click",function(){
     menu.classList.toggle("show")
 })
+toggleButton.addEventListener("blur",function(){
+    menu.classList.remove("show")
+})
+
+options.forEach(function(item) {
+    item.addEventListener("click",function(e){
+        const value = e.currentTarget.textContent.trim() //value 값에 공백을 없애주기 위해 trim을 설정
+        toggleButton.textContent = value
+        toggleButton.classList.add("selected")
+    })
+})
